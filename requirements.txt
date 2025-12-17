@@ -1,0 +1,6 @@
+faiss-cpu 
+qdrant-client 
+sentence-transformers 
+pandas 
+numpy 
+tqdm
