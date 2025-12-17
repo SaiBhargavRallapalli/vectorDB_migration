@@ -4,7 +4,6 @@ import numpy as np
 import os
 import csv
 
-# Configuration
 DATA_PATH = '../data'
 TSV_FILE = f'{DATA_PATH}/collection.tsv'
 SAMPLE_SIZE = 100000
@@ -35,18 +34,17 @@ def prepare_data():
                     
     except FileNotFoundError:
         print(f"Error: Could not find {TSV_FILE}")
-        print("Please ensure 'collection.tsv' is in the 'faiss_to_qdrant/data/' folder.")
         return
 
-    print(f"   Loaded {len(passages)} passages.")
+    print(f"Loaded {len(passages)} passages.")
     
     # Save text metadata (for Qdrant payload)
-    print("3. Saving metadata to CSV...")
+    print("Saving metadata to CSV...")
     df = pd.DataFrame({'id': ids, 'text': passages})
     df.to_csv(f'{DATA_PATH}/passages.csv', index=False)
     
     # Generate Embeddings
-    print("4. Encoding Embeddings (this may take a moment)...")
+    print("Encoding Embeddings (this may take a moment)...")
     embeddings = model.encode(passages, show_progress_bar=True)
     
     # Save binary files (for FAISS and Qdrant)

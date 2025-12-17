@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
-INDEX_PATH = 'faiss_to_qdrant/faiss_index/my_index.faiss'
+INDEX_PATH = './my_index.faiss'
 DATA_PATH = '../data'
 MODEL_NAME = 'all-MiniLM-L6-v2'
 

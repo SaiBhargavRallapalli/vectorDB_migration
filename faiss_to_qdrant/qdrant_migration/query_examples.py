@@ -16,7 +16,7 @@ def validate_migration():
     print(f"Total Vectors in Qdrant: {count_result.count}")
 
     # 2. Query example
-    query_text = "What is the capital of INDIA?"
+    query_text = "What is a GPU?"
     print(f"\n--- Query: '{query_text}' ---")
     query_vector = model.encode(query_text).tolist()
     
@@ -26,7 +26,7 @@ def validate_migration():
         must=[
             FieldCondition(
                 key="text_length",
-                range=Range(lt=1000)
+                range=Range(lt=200)
             ),
             FieldCondition(
                 key="dataset_source",
